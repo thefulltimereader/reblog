@@ -1,4 +1,6 @@
 Reblog::Application.routes.draw do
+  get "pages/home"
+
   resources :users
 
   resources :posts
