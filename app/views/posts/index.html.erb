@@ -1,0 +1,21 @@
+<h1>Listing posts</h1>
+<article>
+<% @posts.each do |post| %>
+<h2> <%= post.title %></h2>
+<div>
+<%= post.body %>
+<ul>
+    <li><%= link_to 'Show', post %></li>
+    <li><%= link_to 'Edit', edit_post_path(post) %></li>
+    <li><%= link_to 'Destroy', post, :confirm => 'Are you sure?',
+    :method => :delete %>
+</ul>
+<hr />
+</div>  
+
+<% end %>
+</article>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
