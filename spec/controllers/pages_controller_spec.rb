@@ -16,4 +16,10 @@ describe PagesController do
     end
   end
 
+  it "should have the right title" do
+    get 'home'
+# wtf
+#    response.should have_selector("title", :content => "Reblog")
+  end
+
 end
