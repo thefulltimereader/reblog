@@ -1,4 +1,6 @@
 Reblog::Application.routes.draw do
+  get "users/new"
+
   get "pages/home"
   get "pages/about"
   get "pages/contact"
@@ -9,6 +11,8 @@ Reblog::Application.routes.draw do
 
   match '/about', :to => 'pages#about'
   match '/contact', :to => 'pages#contact'
+
+  match '/signup', :to => 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
