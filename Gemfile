@@ -9,15 +9,15 @@ gem 'rake', '0.8.7'
 gem 'sqlite3'
 
 group :development do
-      gem 'rspec-rails'
-      gem 'annotate-models'
+#      gem 'rspec-rails'
+#      gem 'annotate-models'
 end
 
 
 group :test do
-      gem 'rspec'
-      gem 'webrat'
-      gem 'spork'
+#      gem 'rspec'
+#      gem 'webrat'
+#      gem 'spork'
 end
 
 # Use unicorn as the web server
