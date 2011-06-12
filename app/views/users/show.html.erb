@@ -1,15 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<div class="profile" summary="profile information">
+     <div class="main">
+     <h1>
+      <%#= gravatar_for @user %>
+        <img src="http://placekitten.com/80/80">
+      <%= @user.name %>
+     </h1>
+     </div>
+     
+     <div class="sidebar round">
+        <strong>Name</strong> <%= @user.name %><br/>
+        <strong>Email</strong> <%= @user.email %><br/>
+        <strong>URL</strong> <%= link_to user_path(@user), @user %><br/>
+     </div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-
+</div>
+<br/>
+<br/>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
