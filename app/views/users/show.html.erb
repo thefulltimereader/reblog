@@ -12,7 +12,9 @@
      <div class="sidebar round">
         <strong>Name</strong> <%= @user.name %><br/>
         <strong>Email</strong> <%= @user.email %><br/>
-        <strong>URL</strong> <%= link_to user_path(@user), @user %><br/>
+        <strong>URL</strong> <%= link_to user_path(@user), @user%>
+	<br/>
+<!--above equivalentlink_to user_path(@user), user_path(@user) -->
      </div>
 
 </div>

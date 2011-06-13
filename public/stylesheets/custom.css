@@ -61,3 +61,24 @@ text-align: center; margin-top: 10px; width: 710px; margin-left: auto; margin-ri
 } footer nav {
 float: none;
 }
+
+
+/* User show page */
+div.profile{ 
+  width:100%;
+  height:300px;
+  margin:3em auto 0 auto;                                     
+}
+
+.profile .main{ 
+  width:50%;
+  padding: 1em;                           
+  float:left                
+}
+
+.profile .sidebar{ 
+ border: 1px solid #999;
+ width: 40%;
+ float:right;                   
+  padding: 1em;                           
+ }
