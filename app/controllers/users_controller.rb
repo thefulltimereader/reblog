@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @title = "Reblog:sign up"
+    @title = "Sign up"
+    @user = User.new
   end
 
   def index
+    @title = "Users"
     @users = Post.all
 
     respond_to do |format|
@@ -17,4 +19,15 @@ class UsersController < ApplicationController
     @title = @user.name
   end
 
+
+  def create
+
+    @user = User.new(params[:user])
+    if @user.save
+    else
+      @title = "Sign up"
+      render 'new'
+    end  
+
+  end
 end

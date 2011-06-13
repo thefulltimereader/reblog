@@ -1,18 +1,16 @@
 class PagesController < ApplicationController
   
-  # def initialize(attributes = {})
-  #   @reblog_title = "Research Log"
-  # end
+
   def home
-    @title = "Reblog:home"
+    @title = "Home"
   end
 
   def about
-    @title = "Reblog:about"
+    @title = "About"
   end
 
   def contact
-    @title = "Reblog:contact"
+    @title = "Contact"
   end
 
 end
