@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,:format   => { :with => email_regex }, 
   :uniqueness => { :case_sensitive => false }
  
-  validates :password, :presence => true, :confirmation => true, :length => { :within => 6..40 }
+  validates :password, :presence => true, :confirmation => true, :length => { :within => 5..40 }
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
