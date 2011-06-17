@@ -1,5 +1,8 @@
 Reblog::Application.routes.draw do
   get "sessions/new"
+  resources :users
+  resources :posts
+  resources :sessions, :only => [:new, :create, :destroy]
 
 #  get "users/new"
 
@@ -7,13 +10,15 @@ Reblog::Application.routes.draw do
   get "pages/about"
   get "pages/contact"
 
-  resources :users
 
-  resources :posts
+
 
   match '/about', :to => 'pages#about'
   match '/contact', :to => 'pages#contact'
   match '/signup', :to => 'users#new'
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

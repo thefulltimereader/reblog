@@ -98,6 +98,11 @@ describe UsersController do
         # =~ is regex comparison, i after the / is for case insensitive
       end
 
+      it "should sign the user in" do
+        post :create, :user => @attr
+        controller.should be_signed_in
+      end
+
     end
 
   end

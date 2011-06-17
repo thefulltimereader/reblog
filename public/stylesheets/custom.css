@@ -26,6 +26,7 @@ header {
    height:80px;
    background: url('http://placekitten.com/500/80') no-repeat;
    overflow: hidden; 
+   color:black;
  }
 
 nav{ 

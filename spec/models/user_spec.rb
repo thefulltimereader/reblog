@@ -98,7 +98,7 @@ describe User do
       end
       
       it "should be false if the passwords don't match" do
-        @user.hass_password?("invalid").should be_false
+        @user.has_password?("invalid").should be_false
       end
 
     end
