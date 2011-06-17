@@ -1,4 +1,6 @@
 Reblog::Application.routes.draw do
+  get "sessions/new"
+
 #  get "users/new"
 
   get "pages/home"
