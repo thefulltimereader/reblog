@@ -101,6 +101,15 @@ div.profile{
  }
 
 
+/* user all*/
+ul.users{ 
+       margin-top:1em;
+}
+
+.users li{ 
+           list-style:none;
+ }
+
 /* Sign up page */
 div.field, div.actions{ 
   margin-bottom:10px;                        

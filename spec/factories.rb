@@ -7,3 +7,9 @@ Factory.define :user do |user|
 end
 
 # now we can do @user = Factory(:user) for tests
+
+
+Factory.sequence :email do |n|
+  "person-#{n}@example.com"
+
+end

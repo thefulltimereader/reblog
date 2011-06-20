@@ -7,19 +7,21 @@ gem 'rake', '0.8.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'gravatar_image_tag', '0.1.0'
+# gem 'gravatar_image_tag', '0.1.0'
+# gem 'will_paginate'
 
 group :development do
-      gem 'rspec-rails'
-      gem 'annotate-models'
+ #     gem 'rspec-rails'
+ #     gem 'annotate-models'
+ #     gem 'faker' 
 end
 
 # uncomment this outside cims!
 group :test do
-      gem 'rspec'
-      gem 'webrat'
-      gem 'spork'
-      gem 'factory_girl_rails'
+#      gem 'rspec'
+ #     gem 'webrat'
+#      gem 'spork'
+#      gem 'factory_girl_rails'
 end
 
 # Use unicorn as the web server
