@@ -6,7 +6,7 @@
       <%= render 'shared/post_form' %>
    </div>
    <div class="sidebar round">
-		    <%= render 'shared/user_info' %>
+   <%= render 'shared/user_info' user%>
    </div>	
    </div>
 

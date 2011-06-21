@@ -7,7 +7,7 @@ describe User do
     @attr = { :name => "Example User", :email => "user@example.com" , 
       :password => "foobar",
       :password_confirmation => "foobar"
-}
+    }
   end
 
   it "should create a new instance given valid attributes" do
@@ -77,7 +77,7 @@ describe User do
       User.new(hash).should_not be_valid
     end
 
-  describe "password encryption" do
+    describe "password encryption" do
       before(:each) do
         @user = User.create!(@attr)
       end
@@ -90,7 +90,7 @@ describe User do
         @user.encrypted_password.should_not be_blank
       end
     end
-   
+    
     describe "has_password? method" do
 
       it "should be true if the passwords match" do
@@ -121,23 +121,61 @@ describe User do
       end
 
     end # of describe "authenticate method" do
-
-    describe "admin attribute" do
-      
-      before(:each) do
-        @user = User.create!(@attr)
-      end
-      it "should respond to admin" do
-        @user.should respond_to(:admin)
-      end
-      it "should not be an admin by default" do
-        @user.should_not be_admin
-      end
-      it "should be convertible to an admin" do
-        @user.toggle!(:admin)
-        @user.should be_admin
-      end
-
+  end # of password validations
+  describe "admin attribute" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
     end
-  end
+    it "should respond to admin" do
+      @user.should respond_to(:admin)
+    end
+    it "should not be an admin by default" do
+      @user.should_not be_admin
+    end
+    it "should be convertible to an admin" do
+      @user.toggle!(:admin)
+      @user.should be_admin
+    end
+
+  end # of describe "admin attribue"
+  
+
+  describe "post associations" do
+    before(:each) do
+      @user = User.create(@attr)
+      @mp1 = Factory(:post, :user => @user, :created_at => 1.day.ago)
+      @mp2 = Factory(:post, :user => @user, :created_at => 1.hour.ago)
+    end
+
+    it "should have a posts attribute" do
+      @user.should respond_to(:posts)
+    end
+
+    it "should have the right posts in the right order" do
+      @user.posts.should == [@mp2, @mp1]
+    end
+
+    it "should destroy associated posts" do
+      @user.destroy
+      [@mp1, @mp2].each do |post|
+        Post.find_by_id(post.id).should be_nil
+      end      
+    end
+
+    describe "status feed" do
+      it "should have a feed" do
+        @user.should respond_to(:feed)
+      end
+      it "should include the user's posts" do
+        @user.feed.include?(@mp1).should be_true
+        @user.feed.include?(@mp2).should be_true
+      end
+      it "should not include a different user's posts" do
+        mp3 = Factory(:post,
+                      :user => Factory(:user, :email => Factory.next(:email)))
+        @user.feed.include?(mp3).should be_false
+      end
+    end
+  end # of post associations
 end

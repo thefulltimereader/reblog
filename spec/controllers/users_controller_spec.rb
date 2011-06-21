@@ -46,7 +46,7 @@ describe UsersController do
         response.should have_selector("a", :href => "/users?page=2",
                                       :content => "Next")
       end
-
+    end
   end # of describe "GET 'index'" do
 
 
@@ -67,9 +67,21 @@ describe UsersController do
       get :new
       response.should have_selector('title', :content => "sign up")
     end
+
+    it "should show the user's posts" do
+      mp1 = Factory(:post, :user => @user, :content => "Foo bar")
+      mp2 = Factory(:post, :user => @user, :content => "Baz quux")
+      get :show, :id => @user
+      response.should have_selector("article", :content => mp1.content)
+      response.should have_selector("article", :content => mp2.content)
+    end
   end
 
   describe "GET 'show'" do
+
+    before(:each) do
+      @user = Factory(:user)
+    end
 
     it "should be successful" do
       get :show, :id => @user

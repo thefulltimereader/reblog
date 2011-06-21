@@ -13,12 +13,17 @@
         <strong>Name</strong> <%= @user.name %><br/>
         <strong>Email</strong> <%= @user.email %><br/>
         <strong>URL</strong> <%= link_to user_path(@user), @user%>
+	<strong>Entries</strong> <%= @user.posts.count%>
 	<br/>
 <!--above equivalentlink_to user_path(@user), user_path(@user) -->
      </div>
 
 </div>
-<br/>
-<br/>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<% unless @user.posts.empty? %>
+<div class="entries" summary="user posts">
+     <%= render @posts %>
+</div>
+<%end %>
+<% #=will_paginate @posts %>
+
