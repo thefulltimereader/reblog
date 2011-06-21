@@ -48,6 +48,7 @@ class User < ActiveRecord::Base
 
   def feed
     Post.where("user_id = ?", id)
+    # question mark escapse the query again injection
   end
 
   private
