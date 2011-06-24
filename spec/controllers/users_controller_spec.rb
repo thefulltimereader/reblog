@@ -64,7 +64,7 @@ describe UsersController do
 
     it "should have the right title" do
       get :new
-      response.should have_selector('title', :content => "sign up")
+      response.should have_selector('title', :content => "Sign up")
     end
 
     it "should show the user's posts" do
@@ -106,7 +106,7 @@ describe UsersController do
     
     it "should have a profile image" do
       get :show, :id => @user
-      response.should have_selector("h1>img", :class => "gravatar")
+      response.should have_selector("h1>img")
     end
     
   end # of show
@@ -173,19 +173,14 @@ describe UsersController do
       
       it "should be successful" do
         get :edit, :id => @user
-        response.should be_sucess
+        response.should be_success
       end
 
       it "should have the right title" do
         get :edit, :id => @user
         response.should have_selector("title", :content => "Edit #{@user.name}")
       end
-      it "should have a link to change the Gravatar" do
-        get :edit, :id => @user
-        gravatar_url = "http://gravatar.com/emails"
-        response.should have_selector("a", :href => gravatar_url,
-                                      :content => "change")
-      end
+
     end # of describe "GET 'edit'" do
 
     describe "PUT 'update'" do

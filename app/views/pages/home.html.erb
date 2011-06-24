@@ -1,14 +1,22 @@
 <% if signed_in? %>
 
    <div class="front" summary="for signed-in users">
-   <div class="entries">
-      <h3>New entry?</h3>
+     <div>
+     <h3>New entry?</h3>
       <%= render 'shared/post_form' %>
    </div>
+
    <div class="sidebar round">
    <%= render 'shared/user_info'%>
-   </div>	
    </div>
+
+<% unless @posts.nil? %>
+   <div class="entries">
+     <%= render @posts %>
+   </div>
+<% end %>
+<%= will_paginate @posts%>
+
 
 
 <% else %>

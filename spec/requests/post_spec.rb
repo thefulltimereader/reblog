@@ -27,7 +27,7 @@ describe "posts" do
           visit root_path
           fill_in :post_content, :with => content
           click_button
-          response.should have_selector("span.content", :content => content)
+          response.should have_selector("article.post", :content => content)
         end.should change(Post, :count).by(1)
       end
     end

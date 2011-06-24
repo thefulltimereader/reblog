@@ -26,7 +26,7 @@ describe PostsController do
       it "should not create a post" do
         lambda do
           post :create, :post => @attr
-        end.should_not change(post, :count)
+        end.should_not change(Post, :count)
       end
       it "should render the home page" do
         post :create, :post => @attr
@@ -40,7 +40,7 @@ describe PostsController do
       it "should create a post" do
         lambda do
           post :create, :post => @attr
-        end.should change(post, :count).by(1)
+        end.should change(Post, :count).by(1)
       end
       it "should redirect to the home page" do
         post :create, :post => @attr
@@ -48,7 +48,7 @@ describe PostsController do
       end
       it "should have a flash message" do
         post :create, :post => @attr
-        flash[:success].should =÷ /post created/i
+        flash[:success].should =~ /post created/i
       end
     end
   end # of POST create
@@ -74,7 +74,7 @@ describe PostsController do
       it "should destroy the post" do
         lambda do
           delete :destroy, :id => @post
-        end.should change(post, :count).by(-1)
+        end.should change(Post, :count).by(-1)
       end
     end
   end # of DELETE

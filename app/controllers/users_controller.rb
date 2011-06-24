@@ -10,17 +10,17 @@ class UsersController < ApplicationController
 
   def index
     @title = "All users"
-    @users = User.all
-#can't do in cims   
-    # @users = User.paginate(:page => params[:page])
+#    @users = User.all
+# can't do below in cims   
+    @users = User.paginate( :page => params[:page])
 
   end
 
   def show
     @user = User.find(params[:id])
     @title = @user.name
-#    @posts = @user.posts.paginate(:page => params[:page])
-    @posts = @user.posts
+ #   @posts = @user.posts
+    @posts = @user.posts.all.paginate(:page => params[:page], :per_page => 3)
   end
 
 
