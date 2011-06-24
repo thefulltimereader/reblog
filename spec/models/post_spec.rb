@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe post do
+describe "post" do
   before(:each) do
     @user = Factory(:user)
     @attr = { :content => "value for content" }
@@ -32,5 +32,7 @@ describe post do
       @user.posts.build(:content => " ").should_not be_valid
     end
 
+
+  end
 
 end
