@@ -1,0 +1,102 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>angjookanazawa.com</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/main.css">
+<link  href="http://fonts.googleapis.com/css?family=Cabin+Sketch:bold"
+rel="stylesheet" type="text/css" >
+<link  href="http://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,bold,bolditalic" rel="stylesheet" type="text/css" >
+<link  href="http://fonts.googleapis.com/css?family=Sniglet:800" rel="stylesheet" type="text/css" >
+
+</head><body>
+
+<div id="top">
+  <div id="titlebox">
+    <div class="title">angjookanazawa.com</div>
+    <div class="bowtiny"></div>
+    </div>
+  <!-- <div class="bowsmall box_rotate"></div> -->
+<menu>
+  <ul>
+    <li class="curr">home</li>  <li>about</li>
+    <li>experiments</li> <li>blog</li>
+  </ul>
+</menu></div>
+<div id="bottom"></div>
+<div id="window"> 
+
+<div id="strip">
+<section class="round">
+
+<article>
+<!-- <img src="http://placekitten.com/490/320"/> -->
+</article>
+
+<!-- <ul> -->
+<!-- <li><a href="latexdemo/template.tex.txt" target="_blank">really -->
+  <!-- simple LaTeX template-->
+<!-- template</a> and its <a href="latexdemo/template.bib.txt" target="_blank">.bib</a> -->
+<!-- <ul> -->
+</section>
+</div>
+
+
+
+<!-- <div class="background 0"> -->
+<!-- </div> -->
+
+
+<footer class="round">
+
+</footer>
+
+</div>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
+<script src="js/colourlovers.js"></script>
+<script src="js/jquery.scrollTo-min.js"></script>
+<script>
+$(document).ready(function(){
+resizeView();
+$(window).resize(function(){ resizeView();});
+
+
+  $("menu ul li").click(function(){
+      console.log($(this).html());
+});
+
+  var tid = setInterval(autoChange, 3000);
+$("menu li, .title").hover(function(){ 
+	console.log("sdf");
+	$(".bowtiny").addClass("bowhover");
+    }, function(){
+	$(".bowtiny").removeClass("bowhover");
+    }
+);
+
+});
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10550309-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
+
+
+

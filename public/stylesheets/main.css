@@ -1,0 +1,189 @@
+html,body{ 
+    width:100%; height:100%;
+    font-family:  'Cabin Sketch','Ubuntu',"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Monaco, Lucida Console, monospace;
+   overflow:hidden;
+ } 
+
+a:active, a:link, a:visited{color:black;}
+
+#window{
+   position:fixed;
+   width:100%; height:100%;
+   top:0; left:0;
+   overflow:hidden;
+}
+
+#backgrounds{
+
+}
+#backgrounds ul li, #backgrounds ul{
+    margin: 0;
+    display: inline;    
+    width:100%;
+    height:100%;
+    float:left;
+}
+.background{
+	width: 100%;
+	height:100%;
+	margin:auto;
+	background-color: lightblue;
+	z-index: -1;
+}
+
+.background .color {
+    width:20%;
+    height:100%;    
+    float:left;
+    clear:right;
+}
+.background .horizontal{
+    width: 100%;
+    height:20%;
+    clear:both;
+
+}
+
+/** frame **/
+#titlebox
+{
+    margin:5px auto 0 auto;
+    width:320px;
+    text-align:center;
+    position:relative;
+    right: -25px; //the width of bow - overlap (20)
+}
+.title{
+    color: white;//rgba(30,30,30,0.7);
+    float:left;
+    position:relative;
+    z-index:2;
+    font-size:28px;
+    text-shadow: 1px 2px 2px rgba(255,255,255,0.1);
+}
+#top, #bottom{
+    height:100px;
+    width:100%;
+    background-color:#262626;
+    position:fixed;
+    z-index:1;
+}
+#bottom{
+    bottom:0;
+}
+#top{
+    top:0;
+}
+
+/** content box**/
+#strip{
+// background-color:rgba(255,255,255,1);//rgba(0,0,0,0.8);
+//    border:3px solid black;
+    border-left:none;
+    position: fixed;
+    top:30%;
+    left:0;
+    height: 300px;
+    width: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+section{
+    color: black;
+    margin: auto;
+//    background-color: white;
+//    border:5px solid white;
+    width:500px;
+    height:100%;
+    position: relative;
+    overflow:hidden;
+}
+
+menu {
+    clear: both;
+    color: white;
+    font-size: 15px;    
+    text-align:center;
+    position:relative;
+    top:30px;
+}
+menu ul li{
+    list-style:none;
+    margin-right: 25px;
+    display: inline;
+    cursor: pointer
+}
+menu ul li.curr{
+    font-weight:bold;
+// 
+}
+
+menu ul li:hover{
+//    text-decoration:underline;  
+text-shadow: 1px 2px 2px rgba(255,255,255,0.1);
+}
+
+article{
+    padding: 10px;
+    height:60%;
+    margin:0 auto 0 auto;
+    overflow: hidden;
+}
+
+
+
+/** footer **/
+footer{
+ float: right;
+ position: fixed; bottom:105px; right:3%;
+ font-size: 0.75em;
+// background-color: #777;
+}
+footer a{  text-decoration: none;}
+footer a:hover{ 
+   text-decoration:underline;
+}
+
+
+/** utilities **/
+.round{
+  moz-border-radius: 12px;
+  border-radius:12px;
+  ebkit-border-radius:12px;
+}
+
+.bowtiny:hover, .bowhover {
+     -moz-transform: rotate(-10deg);  /* FF3.5+ */
+       -o-transform: rotate(-10deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-10deg);  /* Saf3.1+, Chrome */
+      -ms-transform: rotate(-10deg);  /* IE9 */
+          transform: rotate(-10deg);  
+             filter:
+         progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', /* IE6�IE9 */ 
+                     M11=0.9914448613738104,
+             M12=-0.13052619222005157,M21=0.13052619222005157,
+             M22=0.9914448613738104);
+               zoom: 1;
+}
+
+.bowtiny{
+    width:55px;
+    height:41px;    
+    float:left;
+    background: url('../bowtiny2.png') no-repeat;
+    z-index: 1;
+    top:-10px;
+    left:-15px;
+    position:relative;
+}
+
+.bowsmall{
+    width:146px;
+    height:110px;    
+    position: absolute;
+    background: url('../bowsmall2.png') no-repeat;
+    z-index: 3;
+    top:1%;
+    right:0;
+}
+

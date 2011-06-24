@@ -4,12 +4,12 @@
  <title><%= @title %></title>
      <%= csrf_meta_tag %>
      <%= render 'layouts/stylesheets' %>
-     <%= javascript_include_tag :defaults %>
+      <%= render 'layouts/javascripts' %>
+
 </head>
 <body>
-
+<%= render 'layouts/header' %>
 <div class="container">
-  <%= render 'layouts/header' %>
  <section class="round">
      <% flash.each do |key, value| %>
        <div class="flash <%= key %>"> <%= value %> </div>
@@ -18,10 +18,10 @@
      
   </section>
 
+
+   </div>
      <%= render 'layouts/footer' %>
      <%= debug(params) if Rails.env.development? %>
-   </div>
-
 </body>    
   
 
