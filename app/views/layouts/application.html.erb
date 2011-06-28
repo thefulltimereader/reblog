@@ -9,7 +9,8 @@
 </head>
 <body>
 <%= render 'layouts/header' %>
-<div class="container">
+<div id="window">
+  <div id="strip">
  <section class="round">
      <% flash.each do |key, value| %>
        <div class="flash <%= key %>"> <%= value %> </div>
@@ -17,7 +18,8 @@
      <%= yield %>
      
   </section>
-
+</div> <!--end of strip -->
+       <div class='footer'></div>
 
    </div>
      <%= render 'layouts/footer' %>

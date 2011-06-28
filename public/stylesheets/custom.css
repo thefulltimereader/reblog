@@ -3,6 +3,7 @@
     margin: auto;
     background: #fff;
     overflow: hidden;
+    min-height:500px;
 }
 h1{ font-size:2.5em; }
 body{
@@ -11,33 +12,36 @@ body{
 .container.img{
     margin:auto;
 }
+/*
 header {
     padding-top: 30px;
-    background: #262626;
+    background: white; //#262626;
     width:800px;
     margin:auto;
-    height: 20%;
+    overflow: hidden;
     font-family: 'Cabin Sketch', 'Ubuntu', Helevetica;
 }
-footer {
+
+ footer {
 text-align: center; 
 margin: 10px auto 3px auto;
 font-family: 'Cabin Sketch', 'Ubuntu', Helevetica;
 width:800px;
-} 
+}
 footer nav {
 float: none;
 }
+
 .logo{ 
-   font-size:3.5em;
+   font-size:5em;
    margin-left:20px;    
    float:left;
-   width:70%;
+   width:350px;
 //   background:url('http://placekitten.com/500/80') no-repeat;
    overflow: hidden; 
    color:white;
  }
-
+*/
 
 section {
           clear:both;
@@ -54,10 +58,13 @@ color: #069;
 }
 
 /* Navigation */
-nav { 
+/*nav { 
     float: right;
 //    border: solid 2px #ccf;
-    padding: 0 0.7em; white-space: nowrap;
+    margin: auto auto 0 auto; 
+white-space: nowrap;
+      color:#262626;
+      width:400px;
 }
 nav ul { margin: 0; padding: 0;
 }
@@ -65,11 +72,11 @@ nav ul li { list-style-type: none; display: inline-block; padding: 0.2em 0;
 }
 nav ul li a { padding: 0 5px; font-weight: bold;
 } nav ul li a:visited {
-color: #09c;
+                        color: #09c;
 } nav ul li a:hover {
 text-decoration: underline;
 }
-
+*/
 /* Round corners */
 .round { 
     -moz-border-radius: 10px;
@@ -82,22 +89,25 @@ text-decoration: underline;
 
 /* User show page */
 div.profile{ 
-  width:100%;
-  height:300px;
-  margin:3em auto 0 auto;                                     
+  width:200px;
+  height:200px;
+  margin:0.5em auto 0 auto;                                     
+  float:right;
+//  border: solid 1px #262626           
 }
 
 .profile .main{ 
   width:50%;
   padding: 1em;                           
-  float:left                
 }
 
 .profile .sidebar{ 
+ clear:both;                  
  border: 1px solid #999;
- width: 40%;
+ width: 150px;
  float:right;                   
   padding: 1em;                           
+font-size: 0.8em;
  }
 
 
@@ -158,12 +168,20 @@ list-style: square;
                            }
 /* entries/posts*/
 
+.entries{ 
+  float:left;
+  width: 550px;
+   overflow:hidden;
+
+
+ }
 article.post{ 
-   margin-top:1em;
+   margin:1em auto auto auto;
    border-bottom:1px solid #ccc;
               vertical-align:top;
-              width:300px;
+              width:600px;
              padding-top: 10px;
+   overflow: hidden;
      }
 article.post span.timestamp{ 
  display:block;

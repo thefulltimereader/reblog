@@ -1,16 +1,17 @@
 html,body{ 
     width:100%; height:100%;
-    font-family:  'Cabin Sketch','Ubuntu',"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Monaco, Lucida Console, monospace;
+//    font-family:  'Cabin Sketch','Ubuntu',"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Monaco, Lucida Console, monospace;
    overflow:hidden;
+
  } 
 
-a:active, a:link, a:visited{color:black;}
+//a:active, a:link, a:visited{color:black;}
 
 #window{
    position:fixed;
    width:100%; height:100%;
    top:0; left:0;
-   overflow:hidden;
+//   overflow:hidden;
 }
 
 #backgrounds{
@@ -53,7 +54,7 @@ a:active, a:link, a:visited{color:black;}
     position:relative;
     right: -25px; //the width of bow - overlap (20)
 }
-.title{
+.title, .logo{
     color: white;//rgba(30,30,30,0.7);
     float:left;
     position:relative;
@@ -61,17 +62,23 @@ a:active, a:link, a:visited{color:black;}
     font-size:28px;
     text-shadow: 1px 2px 2px rgba(255,255,255,0.1);
 }
-#top, #bottom{
+#top, #bottom, header, footer{
     height:100px;
     width:100%;
     background-color:#262626;
-    position:fixed;
+    position:absolute;
     z-index:1;
+    font-family:  'Cabin Sketch','Ubuntu',"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Monaco, Lucida Console, monospace;
 }
-#bottom{
-    bottom:0;
+#bottom, footer{
+   bottom:0;
+   clear:both;
+   margin: 10px auto 0px auto;                               
 }
-#top{
+footer menu{ 
+  font-size:0.8em;           
+ }
+#top, header{
     top:0;
 }
 
@@ -81,22 +88,21 @@ a:active, a:link, a:visited{color:black;}
 //    border:3px solid black;
     border-left:none;
     position: fixed;
-    top:30%;
+    top:100px;
     left:0;
-    height: 300px;
     width: 100%;
     z-index: 1;
-    overflow: hidden;
+    overflow: auto;
 }
 section{
     color: black;
     margin: auto;
-//    background-color: white;
-//    border:5px solid white;
+    background-color: white;
+    border:5px solid white;
     width:500px;
-    height:100%;
+    height:auto;
     position: relative;
-    overflow:hidden;
+//    overflow:hidden;
 }
 
 menu {
@@ -117,6 +123,11 @@ menu ul li.curr{
     font-weight:bold;
 // 
 }
+menu ul li a:visited {
+     color: white;
+} menu ul li a:hover {
+text-decoration: underline;
+}
 
 menu ul li:hover{
 //    text-decoration:underline;  
@@ -127,20 +138,23 @@ article{
     padding: 10px;
     height:60%;
     margin:0 auto 0 auto;
-    overflow: hidden;
+//    overflow: hidden;
 }
 
 
 
-/** footer **/
-footer{
+/** footer=> .footer made it as a class later this is for footer of window.. **/
+.footer{
  float: right;
  position: fixed; bottom:105px; right:3%;
  font-size: 0.75em;
 // background-color: #777;
+    font-family:  'Cabin Sketch','Ubuntu',"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, Monaco, Lucida Console, monospace;
+ text-align:center;
+        
 }
-footer a{  text-decoration: none;}
-footer a:hover{ 
+.footer a{  text-decoration: none;}
+.footer a:hover{ 
    text-decoration:underline;
 }
 

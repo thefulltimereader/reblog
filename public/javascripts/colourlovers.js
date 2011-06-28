@@ -35,7 +35,7 @@ $.getJSON(  'http://www.colourlovers.com/api/palettes/top?numResults='+maxCount+
 function changeBackground(){
     bkground = backgrounds[count++% backgrounds.length];
     count= count % backgrounds.length;
-    $('footer').html('via colourlovers: <a href="'+ bkground.url+'" target="_blank">'+bkground.title+'</a>');
+    $('.footer').html('via colourlovers: <a href="'+ bkground.url+'" target="_blank">'+bkground.title+'</a>');
    
     console.log(count);
 }
