@@ -23,6 +23,7 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = current_user.posts.build(params[:post])
+
     if @post.save
       flash[:success] = "Post created"
       redirect_to root_path

@@ -17,7 +17,7 @@ describe "posts" do
           click_button
           response.should render_template('pages/home')
           response.should have_selector("div#error_explanation")
-        end.should_not change(post, :count)
+        end.should_not change(Post, :count)
       end
     end
     describe "success" do
@@ -27,8 +27,8 @@ describe "posts" do
           visit root_path
           fill_in :post_content, :with => content
           click_button
-          response.should have_selector("span.content", :content => content)
-        end.should change(post, :count).by(1)
+          response.should have_selector("article.post", :content => content)
+        end.should change(Post, :count).by(1)
       end
     end
   end

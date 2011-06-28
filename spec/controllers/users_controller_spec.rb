@@ -1,3 +1,4 @@
+# -*- coding: iso-8859-1 -*-
 require 'spec_helper'
 
 describe UsersController do
@@ -8,7 +9,7 @@ describe UsersController do
       it "should deny access" do
         get :index
         response.should redirect_to(signin_path)
-        flash[:notice].should =÷ /sign in/i
+        flash[:notice].should =~ /sign in/i
       end
     end
     describe "for signed-in users" do
@@ -21,7 +22,7 @@ describe UsersController do
         30.times do
           @users << Factory(:user, :email => Factory.next(:email))
         end
-      end
+      end 
       it "should be successful" do
         get :index
         response.should be_success
@@ -41,10 +42,8 @@ describe UsersController do
         get :index
         response.should have_selector("div.pagination")
         response.should have_selector("span.disabled", :content => "Previous")
-        response.should have_selector("a", :href => "/users?page=2",
-                                      :content => "2")
-        response.should have_selector("a", :href => "/users?page=2",
-                                      :content => "Next")
+        response.should have_selector("a", :href => "/users?page=2", :content => "2")
+        response.should have_selector("a", :href => "/users?page=2",:content => "Next")
       end
     end
   end # of describe "GET 'index'" do
@@ -65,7 +64,7 @@ describe UsersController do
 
     it "should have the right title" do
       get :new
-      response.should have_selector('title', :content => "sign up")
+      response.should have_selector('title', :content => "Sign up")
     end
 
     it "should show the user's posts" do
@@ -75,7 +74,7 @@ describe UsersController do
       response.should have_selector("article", :content => mp1.content)
       response.should have_selector("article", :content => mp2.content)
     end
-  end
+  end # of new
 
   describe "GET 'show'" do
 
@@ -94,7 +93,7 @@ describe UsersController do
       assigns(:user).should == @user
       #assigns takes a symbol arg and ret the val of the corr. instance var i.e. @user
     end
-      
+    
     it "should have the right title" do
       get :show, :id => @user
       response.should have_selector("title", :content => @user.name)
@@ -107,10 +106,10 @@ describe UsersController do
     
     it "should have a profile image" do
       get :show, :id => @user
-      response.should have_selector("h1>img", :class => "gravatar")
+      response.should have_selector("h1>img")
     end
     
-  end
+  end # of show
 
   describe "POST 'create'" do
 
@@ -164,7 +163,7 @@ describe UsersController do
         controller.should be_signed_in
       end
       
-    end
+    end # end success
 
     describe "GET 'edit'" do
       before(:each) do 
@@ -174,22 +173,15 @@ describe UsersController do
       
       it "should be successful" do
         get :edit, :id => @user
-        response.should be_sucess
+        response.should be_success
       end
 
       it "should have the right title" do
         get :edit, :id => @user
         response.should have_selector("title", :content => "Edit #{@user.name}")
       end
-      it "should have a link to change the Gravatar" do
-        get :edit, :id => @user
-        gravatar_url = "http://gravatar.com/emails"
-        response.should have_selector("a", :href => gravatar_url,
-                                      :content => "change")
-end
 
-
-    end # of       describe "GET 'edit'" do
+    end # of describe "GET 'edit'" do
 
     describe "PUT 'update'" do
 
@@ -235,7 +227,7 @@ end
         
         it "should have a flash message" do
           put :update, :id => @user, :user => @attr
-          flash[:success].should =÷ /updated/
+          flash[:success].should =~ /updated/i
         end
 
       end # of  describe "sucess"  do
@@ -249,69 +241,71 @@ end
 
       describe "for non-signed-in users" do
         
-          it "should deny access to 'edit'" do
-            get :edit, :id => @user
-            response.should redirect_to(signin_path)
-          end
-          it "should deny access to 'update'" do
-            put :update, :id => @user, :user => {}
-            response.should redirect_to(signin_path)
-          end
-          
+        it "should deny access to 'edit'" do
+          get :edit, :id => @user
+          response.should redirect_to(signin_path)
+        end
+        it "should deny access to 'update'" do
+          put :update, :id => @user, :user => {}
+          response.should redirect_to(signin_path)
+        end
+        
       end # of describe for non-signed-in users"
-        
-        describe "for signed-in users" do
-          before(:each) do
-            wrong_user = Factory(:user, :email => "user@example.net")
-            test_sign_in(wrong_user)
-          end
-          it "should require matching users for 'edit'" do
-            get :edit, :id => @user
-            response.should redirect_to(root_path)
-          end
-          it "should require matching users for 'update'" do
-            put :update, :id => @user, :user => {}
-            response.should redirect_to(root_path)
-          end
-        
-        end # of describe "signed-in users"
-      end # of describe "authentication of edit/update pages" do
       
-      describe "DELETE 'destroy'" do
+      describe "for signed-in users" do
         before(:each) do
-          @user = Factory(:user)
+          wrong_user = Factory(:user, :email => "user@example.net")
+          test_sign_in(wrong_user)
         end
-        describe "as a non-signed-in user" do
-          it "should deny access" do
-            delete :destroy, :id => @user
-            response.should redirect_to(signin_path)
-          end
+        it "should require matching users for 'edit'" do
+          get :edit, :id => @user
+          response.should redirect_to(root_path)
         end
-        describe "as a non-admin user" do
-          it "should protect the page" do
-            test_sign_in(@user)
-            delete :destroy, :id => @user
-            response.should redirect_to(root_path)
-          end
+        it "should require matching users for 'update'" do
+          put :update, :id => @user, :user => {}
+          response.should redirect_to(root_path)
         end
-        describe "as an admin user" do
-          before(:each) do
-            admin = Factory(:user, :email => "admin@example.com", :admin => true)
-            test_sign_in(admin)
-          end
-          it "should destroy the user" do
-            lambda do
-              delete :destroy, :id => @user
-            end.should change(User, :count).by(-1)
-          end
-
-          it "should redirect to the users page" do
-            delete :destroy, :id => @user
-            response.should redirect_to(users_path)
-          end
-
-        end
+        
+      end # of describe "signed-in users"
+    end # of describe "authentication of edit/update pages" do
+    
+    describe "DELETE 'destroy'" do
+      before(:each) do
+        @user = Factory(:user)
       end
-    end
+      describe "as a non-signed-in user" do
+        it "should deny access" do
+          delete :destroy, :id => @user
+          response.should redirect_to(signin_path)
+        end
+      end # of nonsigned in
+      describe "as a non-admin user" do
+        it "should protect the page" do
+          test_sign_in(@user)
+          delete :destroy, :id => @user
+          response.should redirect_to(root_path)
+        end
+      end # of non-admin user
+      describe "as an admin user" do
+        before(:each) do
+          admin = Factory(:user, :email => "admin@example.com", :admin => true)
+          test_sign_in(admin)
+        end
+        it "should destroy the user" do
+          lambda do
+            delete :destroy, :id => @user
+          end.should change(User, :count).by(-1)
+        end
+
+        it "should redirect to the users page" do
+          delete :destroy, :id => @user
+          response.should redirect_to(users_path)
+        end
+        
+      end # of admin user
+    end #of delete destory
   end
 end
+
+
+

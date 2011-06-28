@@ -1,5 +1,5 @@
 <h1>All users</h1>
-<% #= will_paginate %>
+<%= will_paginate %>
 
 <ul class="users">
     <%= render @users %>
@@ -8,4 +8,4 @@
 <br />
 
 <%= link_to 'New User', new_user_path %>
-<% # will_paginate %>
+<%= will_paginate %>

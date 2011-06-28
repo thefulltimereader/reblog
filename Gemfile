@@ -4,24 +4,24 @@ gem 'rails', '3.0.5'
 gem 'rake', '0.8.7'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+ #gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-# gem 'gravatar_image_tag', '0.1.0'
-# gem 'will_paginate'
+ gem 'gravatar_image_tag', '0.1.0'
+ gem 'will_paginate', '3.0.pre2'
 
 group :development do
- #     gem 'rspec-rails'
- #     gem 'annotate-models'
- #     gem 'faker' 
+     gem 'rspec-rails'
+     gem 'annotate-models'
+     gem 'faker' 
 end
 
 # uncomment this outside cims!
 group :test do
-#      gem 'rspec'
- #     gem 'webrat'
-#      gem 'spork'
-#      gem 'factory_girl_rails'
+      gem 'rspec'
+     gem 'webrat'
+      gem 'spork'
+      gem 'factory_girl_rails'
 end
 
 # Use unicorn as the web server
